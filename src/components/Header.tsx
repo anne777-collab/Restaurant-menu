@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <p className="mt-2 text-sm text-stone-200 max-w-xl leading-relaxed bg-black/20 p-3 rounded-xl border border-stone-800/50">
               📍 <span className="font-semibold text-amber-300">Address:</span> Chota Bus Stand-Siha, Pin-123411, Mahendragarh Road, Rewari <br />
-              📞 <span className="font-semibold text-amber-300">Phone Support:</span> +91 93501 19887
+              📞 <span className="font-semibold text-amber-300">Phone Support:</span> +91 88510 28623
             </p>
             
             {/* Badges */}

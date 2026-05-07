@@ -52,7 +52,7 @@ export const OrderTracker: React.FC<OrderTrackerProps> = ({
     messageText += `Total: ₹${finalTotal}\n`;
     messageText += `Please wait, I am sending the payment screenshot now.`;
 
-    return `https://wa.me/919350119887?text=${encodeURIComponent(messageText)}`;
+    return `https://wa.me/918851028623?text=${encodeURIComponent(messageText)}`;
   };
 
   return (
@@ -179,7 +179,7 @@ export const OrderTracker: React.FC<OrderTrackerProps> = ({
             <div className="p-3 bg-amber-50 text-amber-900 border border-amber-100 rounded-xl text-left text-xs flex gap-2">
               <AlertTriangle size={18} className="text-amber-600 shrink-0 mt-0.5" />
               <p className="text-[11px] leading-relaxed">
-                <strong>Note:</strong> Clicking will securely direct you to <code>wa.me/919350119887</code>. The web application will remain on this 'Thank You' instruction screen for your screenshot reference.
+                <strong>Note:</strong> Clicking will securely direct you to <code>wa.me/918851028623</code>. The web application will remain on this 'Thank You' instruction screen for your screenshot reference.
               </p>
             </div>
           </div>
@@ -194,11 +194,11 @@ export const OrderTracker: React.FC<OrderTrackerProps> = ({
             </button>
 
             <a
-              href="tel:9350119887"
+              href="tel:8851028623"
               className="text-xs font-bold text-slate-800 hover:underline flex items-center gap-1"
             >
               <Phone size={12} />
-              <span>Call 93501 19887</span>
+              <span>Call 88510 28623</span>
             </a>
           </div>
 

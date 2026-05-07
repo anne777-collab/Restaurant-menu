@@ -70,7 +70,7 @@ export const OrderBuilder: React.FC<OrderBuilderProps> = ({
     messageText += `Total: ₹${finalTotal}\n`;
     messageText += `Please wait, I am sending the payment screenshot now.`;
 
-    const targetUrl = `https://wa.me/919350119887?text=${encodeURIComponent(messageText)}`;
+    const targetUrl = `https://wa.me/918851028623?text=${encodeURIComponent(messageText)}`;
     
     // Redirect securely to WhatsApp target chat link endpoint
     window.open(targetUrl, '_blank');
@@ -252,11 +252,11 @@ export const OrderBuilder: React.FC<OrderBuilderProps> = ({
           ) : null}
 
           <a
-            href="tel:9350119887"
+            href="tel:8851028623"
             className="w-full bg-slate-800 hover:bg-slate-900 text-stone-100 py-2.5 px-4 rounded-xl font-medium text-xs tracking-wider uppercase transition-all shadow-sm flex items-center justify-center gap-2 text-center block"
           >
             <Phone size={13} className="fill-stone-100 text-slate-800" />
-            <span>Call Shop Owner (93501 19887)</span>
+            <span>Call Shop Owner (88510 28623)</span>
           </a>
 
           <div className="text-center text-[10px] text-slate-400 italic">
