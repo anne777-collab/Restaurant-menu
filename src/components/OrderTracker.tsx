@@ -37,17 +37,18 @@ export const OrderTracker: React.FC<OrderTrackerProps> = ({
 
   // Build the precisely requested message layout with safe query tokens encoding
   const generateWhatsAppUrl = () => {
-    let itemsSummary = cartItems
+    const itemLines = cartItems
       .map(item => {
         const sizeLabel = item.selectedSize ? ` (${item.selectedSize.name})` : '';
-        return `${item.quantity}x ${item.menuItem.name}${sizeLabel} (₹${item.totalUnitPrice * item.quantity})`;
+        const specialLabel = item.specialInstructions ? ` (${item.specialInstructions})` : '';
+        return `-> ${item.quantity}x ${item.menuItem.name}${sizeLabel}${specialLabel}`;
       })
-      .join(', ');
+      .join('\n');
 
     // Match instructions format accurately
     let messageText = `Hello! New Order from ${customerName.trim()}.\n`;
     messageText += `Phone: ${customerPhone.trim()}\n`;
-    messageText += `Items: ${itemsSummary}\n`;
+    messageText += `Items:\n${itemLines}\n\n`;
     messageText += `Total: ₹${finalTotal}\n`;
     messageText += `Please wait, I am sending the payment screenshot now.`;
 
@@ -145,9 +146,18 @@ export const OrderTracker: React.FC<OrderTrackerProps> = ({
             </p>
             <p>• Hello! New Order from {customerName}.</p>
             <p>• Phone: {customerPhone}</p>
-            <p className="text-stone-600 text-[11px]">
-              • Items: {cartItems.map(i => `${i.quantity}x ${i.menuItem.name}`).join(', ')}
-            </p>
+            <div className="text-stone-600 text-[11px]">
+              <p>• Items:</p>
+              {cartItems.map((i, idx) => {
+                const sizeLabel = i.selectedSize ? ` (${i.selectedSize.name})` : '';
+                const specialLabel = i.specialInstructions ? ` (${i.specialInstructions})` : '';
+                return (
+                  <p key={idx} className="pl-3">
+                    → {i.quantity}x {i.menuItem.name}{sizeLabel}{specialLabel}
+                  </p>
+                );
+              })}
+            </div>
             <p className="font-bold text-slate-900 mt-1">• Total Amount: ₹{finalTotal}</p>
             <p className="text-purple-700 italic text-[11px] mt-1">
               "Please wait, I am sending the payment screenshot now."

@@ -56,17 +56,18 @@ export const OrderBuilder: React.FC<OrderBuilderProps> = ({
     setIsSent(true);
 
     // Build precisely formatted query body text layout
-    let itemsSummary = cartItems
+    const itemLines = cartItems
       .map(item => {
         const sizeLabel = item.selectedSize ? ` (${item.selectedSize.name})` : '';
-        return `${item.quantity}x ${item.menuItem.name}${sizeLabel}`;
+        const specialLabel = item.specialInstructions ? ` (${item.specialInstructions})` : '';
+        return `-> ${item.quantity}x ${item.menuItem.name}${sizeLabel}${specialLabel}`;
       })
-      .join(', ');
+      .join('\n');
 
-    let messageText = `Hello! New Order from ${customerName.trim()}.\n\n`;
-    messageText += `Phone: ${customerPhone.trim()}\n\n`;
-    messageText += `Items: ${itemsSummary}\n\n`;
-    messageText += `Total: ₹${finalTotal}\n\n`;
+    let messageText = `Hello! New Order from ${customerName.trim()}.\n`;
+    messageText += `Phone: ${customerPhone.trim()}\n`;
+    messageText += `Items:\n${itemLines}\n\n`;
+    messageText += `Total: ₹${finalTotal}\n`;
     messageText += `Please wait, I am sending the payment screenshot now.`;
 
     const targetUrl = `https://wa.me/919350119887?text=${encodeURIComponent(messageText)}`;
